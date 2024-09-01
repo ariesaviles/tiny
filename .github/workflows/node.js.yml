@@ -3,8 +3,6 @@ name: Deploy Svelte App to GitHub Pages
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -23,11 +21,14 @@ jobs:
       run: npm ci
     
     - name: Build Project
-      run: npm run build
+      run: npm run build 
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: main # Specify the branch you want to deploy to (main)
-        publish_dir: ./public # Update to the directory containing your build output
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "GitHub Actions"
+        git add -f public/  # Add the build output directory (usually `public` for Svelte)
+        git commit -m "Deploy Svelte app to GitHub Pages"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
