@@ -1,11 +1,11 @@
+/** @type {import('tailwindcss').Config} */
 export default {
-  plugins: [],
+  content: [],
   theme: {
+    fontFamily: {
+      sans: ['"Times New Roman"', "serif"],
+    },
     extend: {},
   },
-  purge: ["./index.html", "./src/**/*.{svelte,js,ts}"], //for unused css
-  variants: {
-    extend: {},
-  },
-  darkmode: false, // or 'media' or 'class'
+  plugins: [],
 };
