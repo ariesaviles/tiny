@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "HeaderFont";
+  src: url("/fonts/Dotemp-8bit.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BodyFont";
+  src: url("/fonts/AscellaPixel.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "HeaderFont", sans-serif;
+  }
+
+  p,
+  body {
+    font-family: "BodyFont", sans-serif;
+  }
+}
